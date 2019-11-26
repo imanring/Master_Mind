@@ -32,6 +32,23 @@ public class Solver extends Game{
       }//end if
     }//end while
   }//end solve
+
+  public void recursiveSolve(ArrayList<Row> possibleKeys){
+    if(possibleKeys.size()==1){
+      System.out.println(possibleKeys.get(0));
+    }else{
+      Random r = new Random();
+      Row guess = possibleKeys.get(r.nextInt(possibleKeys.size()));
+      String Gscore = guess.scoreGuess(key);
+      for(int i = 0; i < possibleKeys.size(); i++){
+        if(!Gscore.equals(guess.scoreGuess(possibleKeys.get(i).getGuess()))){
+          keyValues.remove(i);
+          i--;
+        }//end if
+      }//end for
+      recursiveSolve(possibleKeys);
+    }
+  }
   Solver(){}
   public void GUIsetUp(){}
   public static void main(String[] args){
@@ -39,5 +56,8 @@ public class Solver extends Game{
     a.setKey();
     a.setKeyValues();
     a.solve();
+    a.keyValues.clear();
+    a.setKeyValues();
+    a.recursiveSolve(a.keyValues);
   }
 }
