@@ -3,7 +3,9 @@
 **ScoreGuess**
 
 Goals - score the guess given the key parameter.
+
 Input - An arrayList of length four, representing the key to score the guess by.
+
 Output - A string representing the score. A 'b' will be add for every peg in the guess that is right in the right spot. A 'w' will be added for every peg in the guess that is right in the wrong spot. For further explaination, see the game rules that I provided in the project proposal.
 Steps - I will have arraylists (called usedWhite and usedBlack) of arrays of length two that represent the positions in the key and guess that gained a specific score. I will have one for black score and one for white score. 
 I will use nested loops to compare each element of the key to each element guess. If elements from the key and guess have the same value and the same positions add an array of the positions to usedBlack. If the elements from the key and guess have the same value but the positions are not equal, add an array of the positions ([index of value from key, index of value from guess]).
@@ -39,3 +41,5 @@ Steps - generate a random int for each index of key.
 ## Solver
 
 **setKeyValues**
+
+Goals - set keyValues to a set of all posible keys at the 
