@@ -2,7 +2,6 @@ import java.util.*;
 public class Row{
   final static int length = 4;
   protected int[] guess;
-  protected String score;
 
   public String scoreGuess(int[] key){
     ArrayList<int[]> usedBlack = new ArrayList<int[]>();
@@ -22,6 +21,12 @@ public class Row{
     used.addAll(usedBlack);
     used.addAll(usedWhite);
     used = removeDuplicate(used);
+    //to recognize errors
+    if(used.size()>4){
+      System.out.println(Arrays.toString(key)+" guess "+Arrays.toString(guess));
+      for(int[] er : used) System.out.print(Arrays.toString(er));
+      System.out.println();
+    }
     String theScore = "";
     for(int[] currentArr : used){
       if(usedBlack.indexOf(currentArr)!=-1){
@@ -30,10 +35,10 @@ public class Row{
         theScore += "w";
       }
     }
-    usedBlack.clear();usedWhite.clear();used.clear();
     return theScore;
   }
   private ArrayList<int[]> removeDuplicate(ArrayList<int[]> used){
+    //I cannot remember why I add this extra for loop but it was for a good reason.
     for(int r = 0;r<4;r++){
     for(int i = 0; i < used.size()-1; i++){
       for(int j = i+1; j < used.size(); j++){

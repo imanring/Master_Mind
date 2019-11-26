@@ -1,13 +1,11 @@
-import java.awt.*;
 import java.util.*;
-import javax.swing.*;
 
 public abstract class Game{
   int[] key = new int[4];
   Row [] board = new Row[9];
   int indexAt;
   int currentRow;
-  //Jlabel [][] GUIrow;
+  
   public Game(){
     this.indexAt = 0;
     this.currentRow = 0;

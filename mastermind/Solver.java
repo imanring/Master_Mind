@@ -34,11 +34,9 @@ public class Solver extends Game{
   }//end solve
   Solver(){}
   public void GUIsetUp(){}
-  //public void keySet(){key = new int[]{1,3,2,5};}
   public static void main(String[] args){
     Solver a = new Solver();
     a.setKey();
-    //a.keySet();
     a.setKeyValues();
     a.solve();
   }

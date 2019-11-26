@@ -12,4 +12,30 @@ I will create a string that will represent the score. I will add a 'b' to the sc
 
 For example, suppose the key is [1,3,1,4] and the guess is [3,1,3,4]. usedBlack should be [[3,3]] because of the 4 in the guess and key. usedWhite should be [[0,1],[1,0],[1,2],[2,1]]. The first array in usedWhite is from the 1s, the next 2 are from the 3s, and the last array is from the 1s again. used will then be [[3,3],[0,1],[1,0],[1,2],[2,1]]. After removeDuplicate is called used will be [[3,3],[0,1],[1,0]]. The score will be "bww".
 
-##  
+**removeDuplicate**
+
+Goals - this method is only used by the method score and its goal is described in the documentation for score.
+
+Input - an arraylist of length 2 arrays (used).
+
+Output - an arraylist that is shortened.
+
+Steps - using the sentry variable i loop from 0 to the length of used minus one (I could go til the length of used but it is not necessary). Inside that loop go from i+1 (so as not to do unnecessary checks) to the length of used. If the key indices or the guess indicies of the two elements in used under consideration are the same remove the later element.
+
+
+## Game
+
+**setKey**
+
+Goals - randomly set a key.
+
+Input - nothing
+
+Ouput - a random key.
+
+Steps - generate a random int for each index of key.
+
+
+## Solver
+
+**setKeyValues**
