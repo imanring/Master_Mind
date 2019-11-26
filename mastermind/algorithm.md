@@ -42,4 +42,19 @@ Steps - generate a random int for each index of key.
 
 **setKeyValues**
 
-Goals - set keyValues to a set of all posible keys at the 
+Goals - set keyValues to a set of all posible keys when we have no information about the actual key.
+
+Steps - do four loops each from 0 to 6 inclusive and set keyValues to the indices.
+
+**Solve**
+
+Goals - figure out a hidden key.
+
+Input - scores from the guesses that the computer gives. These scores will be scoring the guesses against the actual score.
+
+Output - It will print the guess and the scores.
+
+Steps - loop until the keyValues has only one element in it. Each time randomly pick an from keyValues to score. Then remove all elements of keyValues that do not score the guess the same.
+
+
+Development - for the player shuffle the key half way through. Maybe solver it too.
