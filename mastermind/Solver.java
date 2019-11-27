@@ -35,11 +35,12 @@ public class Solver extends Game{
 
   public void recursiveSolve(ArrayList<Row> possibleKeys){
     if(possibleKeys.size()==1){
-      System.out.println(possibleKeys.get(0));
+      System.out.println("Answer: "+possibleKeys.get(0));
     }else{
       Random r = new Random();
       Row guess = possibleKeys.get(r.nextInt(possibleKeys.size()));
       String Gscore = guess.scoreGuess(key);
+      System.out.println(guess+"  "+Gscore);
       for(int i = 0; i < possibleKeys.size(); i++){
         if(!Gscore.equals(guess.scoreGuess(possibleKeys.get(i).getGuess()))){
           keyValues.remove(i);
@@ -55,9 +56,15 @@ public class Solver extends Game{
     Solver a = new Solver();
     a.setKey();
     a.setKeyValues();
+    long sTime = System.currentTimeMillis();
     a.solve();
+    sTime = System.currentTimeMillis()-sTime;
+    System.out.println("Time for looping function: "+sTime);
     a.keyValues.clear();
     a.setKeyValues();
+    sTime = System.currentTimeMillis();
     a.recursiveSolve(a.keyValues);
+    sTime = System.currentTimeMillis() - sTime;
+    System.out.println("Time for the recursive function: "+sTime);
   }
 }
