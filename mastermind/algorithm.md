@@ -38,7 +38,7 @@ Ouput - a random key.
 Steps - generate a random int for each index of key.
 
 
-## Solver
+## Solver - inherits from Game
 
 **setKeyValues**
 
@@ -56,7 +56,7 @@ Output - It will print the guess and the scores.
 
 Steps - loop until the keyValues has only one element in it. Each time randomly pick an from keyValues to score. Then remove all elements of keyValues that do not score the guess the same.
 
-## Player
+## Player - inherits from Game
 
 **Constructor**
 
@@ -88,5 +88,26 @@ Output - If a color button was pressed change the color of the current Jlabel. I
 
 Steps - When the submit button is pressed if it is ready to be submitted increase the currentRow index and set the Jlable index to 0. Then set the last Jlabel to the score. If a color button is pressed set the guess at currentRow and Jlabel index to an integer corresponding to the color. Increase the Jlable index or set it to 0 if the index would get too high. If the index is high enough set submittable to true.
 
+## TwoPlayer - inherits from Player
+
+**SetKey**
+
+Goals - allow the user to set the key.
+
+Input - The user will push color buttons to set the key.
+
+Output - set the key for the game.
+
+Steps - Use a similar set up to the GUIsetUp that Player had. I will have a row of buttons and a row of JLabels.
+
+**actionPerformed**
+
+Goals - set an number in the key or submit the key and move on to the solving part of the game that was already created in Player.java.
+
+Input - an indication of which button was pressed.
+
+Output - Change the color of a JLable and set part of the key or move on to the next part of the game.
+
+Steps - this will be very similar to the actionPerformed in Player.java. It will have to have all of the code from actionPerformed and some for setting the key. The submit for setting the key will dispose of the current JFrame and call GUIsetUP from Player if indeed the key has been set.
 
 Development - for the player shuffle the key half way through. Maybe solver it too.
