@@ -56,5 +56,37 @@ Output - It will print the guess and the scores.
 
 Steps - loop until the keyValues has only one element in it. Each time randomly pick an from keyValues to score. Then remove all elements of keyValues that do not score the guess the same.
 
+## Player
+
+**Constructor**
+
+Goals - initialize and set up the Jlabels that will represent the board.
+
+Input - nothing
+
+Output - nothing
+
+Steps - loop through the Jlabels. Initialize each one, set the text for each one, and give it an empty border.
+
+**GUIsetUp**
+
+Goals - set the GUI up for the game
+
+Input - nothing
+
+Output - an ugly GUI
+
+Steps - create a Jframe and add a border layout container to it. Add a grid container of buttons to the main container. Also add a grid container of Jlabels to the main container. Also add an actionListener to each button. Player will take care of the actionListener.
+
+**ActionListener**
+
+Goals - perform the correct actions for each button.
+
+Input - which button was pushed
+
+Output - If a color button was pressed change the color of the current Jlabel. If the submit button is pressed output the score.
+
+Steps - When the submit button is pressed if it is ready to be submitted increase the currentRow index and set the Jlable index to 0. Then set the last Jlabel to the score. If a color button is pressed set the guess at currentRow and Jlabel index to an integer corresponding to the color. Increase the Jlable index or set it to 0 if the index would get too high. If the index is high enough set submittable to true.
+
 
 Development - for the player shuffle the key half way through. Maybe solver it too.
