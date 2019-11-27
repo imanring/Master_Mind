@@ -50,10 +50,27 @@ public class Solver extends Game{
       recursiveSolve(possibleKeys);
     }
   }
+  public static void permutations(int[] array, int i, int n){
+    if(i==n-1){
+      System.out.println(Arrays.toString(array));
+    }
+    else{
+      for(int k = 0; k<n-i;k++){
+        permutations(swap(Arrays.copyOf(array,array.length),i,i+k),i+1,n);
+      }
+    }
+  }
+  static int[] swap(int[] array, int a, int b){
+    int temp = array[a];
+    array[a] = array[b];
+    array[b] = temp;
+    return array;
+  }
   Solver(){}
   public void GUIsetUp(){}
   public static void main(String[] args){
     Solver a = new Solver();
+    permutations(new int[]{1,2,3,4},0,4);
     a.setKey();
     a.setKeyValues();
     long sTime = System.currentTimeMillis();
