@@ -75,6 +75,11 @@ public class Row implements Cloneable{
   public int getVal(int index){
     return guess[index];
   }
+  boolean equals(Row other){
+    if(null == other) return false;
+    if(guess != other.getGuess()) return false;
+    return true;
+  }
   public static void main(String[] args){
     Row a = new Row(new int[]{5,2,2,5});
     System.out.println(a.scoreGuess(new int[]{4,2,6,2}));

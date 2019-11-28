@@ -50,9 +50,9 @@ public class Solver extends Game{
       recursiveSolve(possibleKeys);
     }
   }
-  public static void permutations(Row array, int i, int n){
+  public void permutations(Row array, int i, int n){
     if(i==n-1){
-      System.out.println(array);
+      keyValues.add(array);
     }
     else{
       for(int k = 0; k<n-i;k++){
@@ -64,17 +64,60 @@ public class Solver extends Game{
       }
     }
   }
-  static Row swap(Row array, int a, int b){
+  Row swap(Row array, int a, int b){
     int temp = array.getVal(a);
     array.makeGuess(a,array.getVal(b));
     array.makeGuess(b,temp);
     return array;
   }
+  public void shuffleKey(){
+    Random r = new Random();
+    for(int i = 0; i<4; i++){
+      int randIndex = r.nextInt(4);
+      int temp = key[randIndex];
+      int randIndex2 = r.nextInt(4);
+      key[randIndex] = key[randIndex2];
+      key[randIndex2] = temp;
+    }
+    System.out.println("Key: "+Arrays.toString(key));
+  }
+  public void solveShuffle(){
+    boolean keepGoing = true;
+    Row guess;
+    Random random = new Random();
+    int count = 0;
+    while(keepGoing){
+      if(count==2){
+        shuffleKey();
+        for(int i = 0; i<keyValues.size();i++){
+          permutations(keyValues.get(i),0,4);
+        }
+        HashSet<Row> hashSet = new HashSet(keyValues);
+        keyValues.clear();
+        keyValues = new ArrayList<Row>(hashSet);
+      }
+      count++;
+      guess = keyValues.get(random.nextInt(keyValues.size()));
+      String Gscore = guess.scoreGuess(key);
+      System.out.println(guess+"  "+Gscore);
+      for(int i = 0; i < keyValues.size(); i++){
+        if(!Gscore.equals(guess.scoreGuess(keyValues.get(i).getGuess()))){
+          keyValues.remove(i);
+          i--;
+        }//end if
+      }//end for
+      if(keyValues.size()==1){
+        keepGoing = false;
+        System.out.println("My answer: "+Arrays.toString(keyValues.get(0).getGuess()));
+      }//end if
+    }//end while
+  }//end solve
+
   Solver(){}
   public void GUIsetUp(){}
   public static void main(String[] args){
     Solver a = new Solver();
-    permutations(new Row(new int[]{1,2,3,4}),0,4);
+    //permutations(new Row(new int[]{1,2,3,4}),0,4);
     a.setKey();
     a.setKeyValues();
     long sTime = System.currentTimeMillis();
@@ -87,5 +130,8 @@ public class Solver extends Game{
     a.recursiveSolve(a.keyValues);
     sTime = System.currentTimeMillis() - sTime;
     System.out.println("Time for the recursive function: "+sTime);
+    //a.keyValues.clear();
+    //a.setKeyValues();
+    //a.solveShuffle();
   }
 }
