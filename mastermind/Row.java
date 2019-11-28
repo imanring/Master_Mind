@@ -1,7 +1,13 @@
 import java.util.*;
-public class Row{
+public class Row implements Cloneable{
   final static int length = 4;
   protected int[] guess;
+
+  public Row clone() throws CloneNotSupportedException{
+    Row r = (Row)super.clone();
+    r.guess = Arrays.copyOf(this.guess,this.guess.length);
+    return r;
+  }  
 
   public String scoreGuess(int[] key){
     ArrayList<int[]> usedBlack = new ArrayList<int[]>();
@@ -65,6 +71,9 @@ public class Row{
   }
   public void makeGuess(int index, int value){
     guess[index] = value;
+  }
+  public int getVal(int index){
+    return guess[index];
   }
   public static void main(String[] args){
     Row a = new Row(new int[]{5,2,2,5});
