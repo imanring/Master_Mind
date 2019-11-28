@@ -75,10 +75,18 @@ public class Row implements Cloneable{
   public int getVal(int index){
     return guess[index];
   }
-  boolean equals(Row other){
-    if(null == other) return false;
-    if(guess != other.getGuess()) return false;
-    return true;
+  @Override
+  public boolean equals(Object other){
+    System.out.println("Here");
+    //Row nr = other;
+    if(other instanceof Row){
+      return Arrays.equals(((Row)other).getGuess(),guess);
+    }
+    return false;
+  }
+  @Override
+  public int hashCode(){
+    return guess[0]+10*guess[1]+100*guess[2]+1000*guess[3];
   }
   public static void main(String[] args){
     Row a = new Row(new int[]{5,2,2,5});
