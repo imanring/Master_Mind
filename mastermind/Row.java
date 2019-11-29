@@ -77,8 +77,6 @@ public class Row implements Cloneable{
   }
   @Override
   public boolean equals(Object other){
-    System.out.println("Here");
-    //Row nr = other;
     if(other instanceof Row){
       return Arrays.equals(((Row)other).getGuess(),guess);
     }
