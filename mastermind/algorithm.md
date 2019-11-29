@@ -25,6 +25,13 @@ Output - an arraylist that is shortened.
 Steps - using the sentry variable i loop from 0 to the length of used minus one (I could go til the length of used but it is not necessary). Inside that loop go from i+1 (so as not to do unnecessary checks) to the length of used. If the key indices or the guess indicies of the two elements in used under consideration are the same remove the later element.
 
 
+**clone**
+
+**equals**
+
+**hashCode**
+
+
 ## Game
 
 **setKey**
@@ -55,6 +62,17 @@ Input - scores from the guesses that the computer gives. These scores will be sc
 Output - It will print the guess and the scores.
 
 Steps - loop until the keyValues has only one element in it. Each time randomly pick an from keyValues to score. Then remove all elements of keyValues that do not score the guess the same.
+
+
+**recursiveSolve**
+
+**shuffleKey**
+
+**shuffleSolve**
+
+**Permutations**
+
+**swap**
 
 ## Player - inherits from Game
 
@@ -109,5 +127,3 @@ Input - an indication of which button was pressed.
 Output - Change the color of a JLable and set part of the key or move on to the next part of the game.
 
 Steps - this will be very similar to the actionPerformed in Player.java. It will have to have all of the code from actionPerformed and some for setting the key. The submit for setting the key will dispose of the current JFrame and call GUIsetUP from Player if indeed the key has been set.
-
-Development - for the player shuffle the key half way through. Maybe solver it too.
