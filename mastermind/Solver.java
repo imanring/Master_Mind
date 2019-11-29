@@ -112,24 +112,23 @@ public class Solver extends Game{
   }//end solve
 
   Solver(){}
-  public void GUIsetUp(){}
-  public static void main(String[] args){
-    Solver a = new Solver();
+  public void play(){
+    //Solver a = new Solver();
     //permutations(new Row(new int[]{1,2,3,4}),0,4);
-    a.setKey();
-    a.setKeyValues();
+    setKey();
+    setKeyValues();
     long sTime = System.currentTimeMillis();
-    a.solve();
+    solve();
     sTime = System.currentTimeMillis()-sTime;
     System.out.println("Time for looping function: "+sTime);
-    a.keyValues.clear();
-    a.setKeyValues();
+    keyValues.clear();
+    setKeyValues();
     sTime = System.currentTimeMillis();
-    a.recursiveSolve(a.keyValues);
+    recursiveSolve(a.keyValues);
     sTime = System.currentTimeMillis() - sTime;
     System.out.println("Time for the recursive function: "+sTime);
-    a.keyValues.clear();
-    a.setKeyValues();
-    a.solveShuffle();
+    keyValues.clear();
+    setKeyValues();
+    solveShuffle();
   }
 }

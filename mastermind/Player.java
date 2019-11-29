@@ -93,8 +93,8 @@ public class Player extends Game implements ActionListener{
     frame.pack();
     frame.setVisible(true);
   }
-  public static void main(String[] args){
-    Player a = new Player();
+  public void play(){
+    //Player a = new Player();
     a.setKey();
     a.GUIsetUp();
   }

@@ -1,3 +1,4 @@
+Main: Game.class
 Player.class: Game.class Row.java Player.java
 	javac Player.java
 Solver.class: Row.class Solver.java Game.class

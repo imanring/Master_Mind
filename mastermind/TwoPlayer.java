@@ -86,8 +86,8 @@ public class TwoPlayer extends Player{// implements ActionListener{
     setFrame.setVisible(true);
     setFrame.pack();
   }
-  public static void main(String[] args){
-    TwoPlayer a = new TwoPlayer();
-    a.setKey();
+  @Override
+  public void play(){
+    setKey();
   }
 }

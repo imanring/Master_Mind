@@ -20,5 +20,5 @@ public abstract class Game{
     }
     System.out.println("Key: "+Arrays.toString(key));
   }//end setKey
-  public abstract void GUIsetUp();
+  public abstract void play();
 }
