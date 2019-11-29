@@ -124,7 +124,7 @@ public class Solver extends Game{
     keyValues.clear();
     setKeyValues();
     sTime = System.currentTimeMillis();
-    recursiveSolve(a.keyValues);
+    recursiveSolve(keyValues);
     sTime = System.currentTimeMillis() - sTime;
     System.out.println("Time for the recursive function: "+sTime);
     keyValues.clear();

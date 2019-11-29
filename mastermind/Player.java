@@ -95,7 +95,7 @@ public class Player extends Game implements ActionListener{
   }
   public void play(){
     //Player a = new Player();
-    a.setKey();
-    a.GUIsetUp();
+    setKey();
+    GUIsetUp();
   }
 }
