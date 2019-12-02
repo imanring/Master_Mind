@@ -7,6 +7,7 @@ Goals - score the guess given the key parameter.
 Input - An arrayList of length four, representing the key to score the guess by.
 
 Output - A string representing the score. A 'b' will be add for every peg in the guess that is right in the right spot. A 'w' will be added for every peg in the guess that is right in the wrong spot. For further explaination, see the game rules that I provided in the project proposal.
+
 Steps - I will have arraylists (called usedWhite and usedBlack) of arrays of length two that represent the positions in the key and guess that gained a specific score. I will have one for black score and one for white score. 
 I will use nested loops to compare each element of the key to each element guess. If elements from the key and guess have the same value and the same positions add an array of the positions to usedBlack. If the elements from the key and guess have the same value but the positions are not equal, add an array of the positions ([index of value from key, index of value from guess]).
 Once I have usedBlack and usedWhite, I will concatinate usedWhite to the end of usedBlack to make a new arraylist called used. I will then remove the elements from the later part of used that share key index or guess index with an earlier element in the arraylist. This will be done in a method called removeDuplicate.
@@ -27,9 +28,35 @@ Steps - using the sentry variable i loop from 0 to the length of used minus one 
 
 **clone**
 
+Goals - return a copy of a Row object at a new reference because copies of object references are passed to methods instead copies of the object data in java.
+
+Input - nothing.
+
+Output - a copied row object at a new reference in memory.
+
+Steps - create a new Row object with a copy of guess of the original.
+
+
 **equals**
 
+Goals - check if the data in the Row object is equal to the data in object that called this method. It will not check if the references are the same in memory.
+
+Input - an object to be checked
+
+Ouput - boolean that represents equality.
+
+Steps - if the guesses of the two objects are the same return true.
+
+
 **hashCode**
+
+Goals - return a unique integer for each possible Row.
+
+Input - the calling object.
+
+Output - a unique integer representing the row.
+
+Steps - turn the guess into a base 10 number.
 
 
 ## Game
@@ -66,13 +93,39 @@ Steps - loop until the keyValues has only one element in it. Each time randomly 
 
 **recursiveSolve**
 
+**shuffleSolve**
+
+Goals - solve the key. This time, however, after 3 guesses the key will be shuffled. The values will stay the  same, but their positions will be shuffled.
+
+Input - nothing.
+
+Output - the guesses that the computer makes.
+
+Steps - Solver the same way the regular solver does it, but this time add a counter and after 3 guesses call shuffleKey. Then update keyValues to have all possible permutations of the elements in keyValues currently. I will add the permutations using a method called permutations. 
+
+
 **shuffleKey**
 
-**shuffleSolve**
+Goals - shuffle the key.
+
+Input - nothing.
+
+Output - nothing.
+
+Steps - Randomly swap elements several times.
+
 
 **Permutations**
 
-**swap**
+Goals - find all the permutations of an array and add them to keyValues if it is not already in keyValues.
+
+Input - the array to find the permutations of after an index (i). Also the length of the array will be passed.
+
+Output - possibly new elements of keyValues.
+
+Steps - recursively go through the permutations according the the figure provided by GeeksforGeeks each time swap an element in the array (sometimes swap with itself).
+
+**swap** - swap two elements of the guess of a Row. The elements are given by parameters a and b.
 
 ## Player - inherits from Game
 
