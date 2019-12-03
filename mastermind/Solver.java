@@ -1,12 +1,13 @@
 import java.util.*;
 public class Solver extends Game{
-  ArrayList<Row> keyValues = new ArrayList<Row>();
+  //ArrayList<Row> keyValues = new ArrayList<Row>();
+  LinkedList keyValues = new LinkedList();
   public void setKeyValues(){
     for(int i = 0; i < 7;i++){
       for(int j = 0; j < 7; j++){
         for(int k = 0; k < 7; k++){
           for(int l = 0; l < 7; l++){
-            keyValues.add(new Row(new int[]{i,j,k,l}));
+            keyValues.append(new Row(new int[]{i,j,k,l}));
           }
         }
       }
@@ -22,7 +23,7 @@ public class Solver extends Game{
       System.out.println(guess+"  "+Gscore);
       for(int i = 0; i < keyValues.size(); i++){
         if(!Gscore.equals(guess.scoreGuess(keyValues.get(i).getGuess()))){
-          keyValues.remove(i);
+          keyValues.delete(i);
           i--;
         }//end if
       }//end for
@@ -43,7 +44,7 @@ public class Solver extends Game{
       System.out.println(guess+"  "+Gscore);
       for(int i = 0; i < possibleKeys.size(); i++){
         if(!Gscore.equals(guess.scoreGuess(possibleKeys.get(i).getGuess()))){
-          keyValues.remove(i);
+          keyValues.delete(i);
           i--;
         }//end if
       }//end for
@@ -53,7 +54,7 @@ public class Solver extends Game{
   public void permutations(Row array, int i, int n){
     if(i==n-1){
       if(!keyValues.contains(array)){
-      keyValues.add(array);}
+      keyValues.append(array);}
     }
     else{
       for(int k = 0; k<n-i;k++){
@@ -100,7 +101,7 @@ public class Solver extends Game{
       System.out.println(guess+"  "+Gscore);
       for(int i = 0; i < keyValues.size(); i++){
         if(!Gscore.equals(guess.scoreGuess(keyValues.get(i).getGuess()))){
-          keyValues.remove(i);
+          keyValues.delete(i);
           i--;
         }//end if
       }//end for

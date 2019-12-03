@@ -69,12 +69,21 @@ public class LinkedList{
     }
     return -1;
   }
+  public int size(){
+    int count = 0;
+    Node n = head;
+    while(n!=null){
+      count++;
+      n = n.getNext();
+    }
+    return count;
+  }
   public static void main(String [] args){
     LinkedList a = new LinkedList();
     a.append(new Row(new int[]{0,0,0,0}));
     a.append(new Row(new int[]{3,3,3,3}));
     a.append(new Row(new int[]{3,2,4,5}));
-    a.delete(0);
-    System.out.println(a);
+    //a.delete(0);
+    System.out.println(a.size());
   }
 }
