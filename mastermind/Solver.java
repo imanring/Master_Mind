@@ -113,8 +113,6 @@ public class Solver extends Game{
 
   Solver(){}
   public void play(){
-    //Solver a = new Solver();
-    //permutations(new Row(new int[]{1,2,3,4}),0,4);
     setKey();
     setKeyValues();
     long sTime = System.currentTimeMillis();

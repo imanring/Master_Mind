@@ -180,3 +180,14 @@ Input - an indication of which button was pressed.
 Output - Change the color of a JLable and set part of the key or move on to the next part of the game.
 
 Steps - this will be very similar to the actionPerformed in Player.java. It will have to have all of the code from actionPerformed and some for setting the key. The submit for setting the key will dispose of the current JFrame and call GUIsetUP from Player if indeed the key has been set.
+
+
+## Node generic
+
+## LinkedList generic
+
+**append**
+
+**search**
+
+
