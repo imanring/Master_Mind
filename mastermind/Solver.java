@@ -34,7 +34,7 @@ public class Solver extends Game{
     }//end while
   }//end solve
 
-  public void recursiveSolve(ArrayList<Row> possibleKeys){
+  public void recursiveSolve(LinkedList possibleKeys){
     if(possibleKeys.size()==1){
       System.out.println("Answer: "+possibleKeys.get(0));
     }else{
@@ -53,7 +53,7 @@ public class Solver extends Game{
   }
   public void permutations(Row array, int i, int n){
     if(i==n-1){
-      if(!keyValues.contains(array)){
+      if(keyValues.get(array)==-1){
       keyValues.append(array);}
     }
     else{

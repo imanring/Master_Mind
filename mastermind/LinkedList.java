@@ -78,12 +78,16 @@ public class LinkedList{
     }
     return count;
   }
+  public void clear(){
+    head = null;
+  }
   public static void main(String [] args){
     LinkedList a = new LinkedList();
     a.append(new Row(new int[]{0,0,0,0}));
     a.append(new Row(new int[]{3,3,3,3}));
     a.append(new Row(new int[]{3,2,4,5}));
-    //a.delete(0);
-    System.out.println(a.size());
+    a.append(new Row(new int[]{3,3,2,3}));
+    if(a.get(new Row(new int[]{3,3,2,3}))==-1)a.append(new Row(new int[]{3,3,2,3}));
+    System.out.println(a);
   }
 }
