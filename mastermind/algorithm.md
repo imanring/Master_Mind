@@ -88,14 +88,12 @@ Input - scores from the guesses that the computer gives. These scores will be sc
 
 Output - It will print the guess and the scores.
 
-Steps - loop until the keyValues has only one element in it. Each time randomly pick an from keyValues to score. Then remove all elements of keyValues that do not score the guess the same.
+Steps - loop until the keyValues has only one element in it. Each time randomly pick an element from keyValues to score. Then remove all elements of keyValues that do not score the guess the same as the key did.
 
-
-**recursiveSolve**
 
 **shuffleSolve**
 
-Goals - solve the key. This time, however, after 3 guesses the key will be shuffled. The values will stay the  same, but their positions will be shuffled.
+Goals - solve the key. This time, however, after 3 guesses the key will be shuffled. The values will stay the  same, but their positions will be shuffled. Note: I am adding a new twist to the game not making it easier to solve.
 
 Input - nothing.
 
@@ -182,9 +180,6 @@ Output - Change the color of a JLable and set part of the key or move on to the 
 Steps - this will be very similar to the actionPerformed in Player.java. It will have to have all of the code from actionPerformed and some for setting the key. The submit for setting the key will dispose of the current JFrame and call GUIsetUP from Player if indeed the key has been set.
 
 
-**Node - will have getters and setters for it payload and single Node pointer**
-
-
 ## LinkedList - single linked list.
 
 **append**
@@ -204,3 +199,6 @@ Steps - this will be very similar to the actionPerformed in Player.java. It will
 
 **clear**
 - set head to null. This will hopefully delete the rest of the Nodes.
+
+
+**Node - will have getters and setters for its payload and single Node pointer**

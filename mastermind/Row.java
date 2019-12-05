@@ -1,7 +1,7 @@
 import java.util.*;
 public class Row implements Cloneable{
-  final static int length = 4;
-  protected int[] guess;
+  //a row has 4 elements
+  protected int[] guess;//the guess in this row
 
   public Row clone() throws CloneNotSupportedException{
     Row r = (Row)super.clone();
@@ -12,8 +12,8 @@ public class Row implements Cloneable{
   public String scoreGuess(int[] key){
     ArrayList<int[]> usedBlack = new ArrayList<int[]>();
     ArrayList<int[]> usedWhite = new ArrayList<int[]>();
-    for(int g = 0; g < length; g++){
-      for(int k = 0; k < length; k++){
+    for(int g = 0; g < 4; g++){
+      for(int k = 0; k < 4; k++){
         if(key[k]==guess[g]){
           if(g==k){
             usedBlack.add(new int[]{k,g});
