@@ -182,12 +182,25 @@ Output - Change the color of a JLable and set part of the key or move on to the 
 Steps - this will be very similar to the actionPerformed in Player.java. It will have to have all of the code from actionPerformed and some for setting the key. The submit for setting the key will dispose of the current JFrame and call GUIsetUP from Player if indeed the key has been set.
 
 
-## Node generic
+**Node - will have getters and setters for it payload and single Node pointer**
 
-## LinkedList generic
+
+## LinkedList - single linked list.
 
 **append**
+- iterate to the end of the linked list and set the next of the tail to the new Row.
 
-**search**
+**get(int n)**
+- iterate in the linked list n times and then return the Row at that position. If the list is not that long return null.
 
+**get(Row r)** 
+- iterate through the linkedlist checking for equality with r. If one of the elements in the linked is equal to r return the position of that element, otherwise return -1.
 
+**delete**
+- iterate through the linkedlist keeping track of the current Row and the previous Row. When the current Row's index is equal to the input index, set previous' next to the next of current.
+
+**size**
+- iterate through the linkedlist. Return the number of iterations.
+
+**clear**
+- set head to null. This will hopefully delete the rest of the Nodes.
