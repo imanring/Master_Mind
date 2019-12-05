@@ -21,7 +21,9 @@ public class Player extends Game implements ActionListener{
     EmptyBorder border = new EmptyBorder(5,10,5,10);
     for(int r = 0; r < 9; r++){
       for(int c = 0; c < 5; c++){
-        guessRows[r][c] = new JLabel();guessRows[r][c].setText("*");
+        guessRows[r][c] = new JLabel();
+        if(c%5!=4) guessRows[r][c].setText("*");
+        else guessRows[r][c].setText("score");
         guessRows[r][c].setBorder(border);
         guessRows[r][c].setOpaque(true);
       }
@@ -48,7 +50,7 @@ public class Player extends Game implements ActionListener{
       if(submittable){
         indexAt=0;
         guessRows[currentRow][4].setText(board[currentRow].scoreGuess(key));
-        currentRow++;
+        if(currentRow<8) currentRow++;
         submittable = false;
       }
     }
