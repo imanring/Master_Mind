@@ -1,10 +1,12 @@
 import java.util.*;
 
 public abstract class Game{
-  int[] key = new int[4];
+  int[] key = new int[4];//this is the code for the game
+  int difficulty;
   Row [] board = new Row[9];
-  int indexAt;
-  int currentRow;
+  //as a player guesses they move along a row
+  int indexAt;//this is the index on a row
+  int currentRow;//this the current row on the board
   
   public Game(){
     this.indexAt = 0;
@@ -23,6 +25,7 @@ public abstract class Game{
       Random random = new Random();
       //easy - only two values possible in the key.
       if(choice.equals("1")){
+        difficulty = 1;
         keepGoing = false;
         int[] vals = new int[]{random.nextInt(7),random.nextInt(7)};
         for(int i = 0; i < 4; i++){
@@ -32,11 +35,12 @@ public abstract class Game{
       }
       //medium - all different numbers
       else if(choice.equals("2")){
+        difficulty = 2;
         keepGoing = false;
         ArrayList<Integer> vals = new ArrayList();
         vals.add(new Integer(0));vals.add(new Integer(1));vals.add(new Integer(2));vals.add(new Integer(3));
         vals.add(new Integer(4));vals.add(new Integer(5));vals.add(new Integer(6));
-        int temp;
+        int temp;//will be the 
         for(int i = 0; i < 4; i++){
           temp = random.nextInt(vals.size());
           key[i] = vals.get(temp).intValue();
@@ -45,6 +49,7 @@ public abstract class Game{
       }
       //hard - random integers
       else if(choice.equals("3")){
+        difficulty = 3;
         keepGoing = false;
         for(int i = 0; i < 4; i++){
           key[i] = random.nextInt(7);

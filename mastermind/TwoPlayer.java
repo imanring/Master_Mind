@@ -51,7 +51,7 @@ public class TwoPlayer extends Player{// implements ActionListener{
       if(submittable){
         indexAt=0;
         guessRows[currentRow][4].setText(board[currentRow].scoreGuess(key));
-        currentRow++;
+        if(currentRow<8) currentRow++;
         submittable = false;
       }
     }

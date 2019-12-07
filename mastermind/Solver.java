@@ -2,14 +2,53 @@ import java.util.*;
 public class Solver extends Game{
   LinkedList keyValues = new LinkedList();
   
-  //set all possible key values.
   public void setKeyValues(){
+    if(difficulty==1){
+      setKeyValues1();
+    }
+    else if(difficulty==2){
+      setKeyValues2();
+    }
+    else{
+      setKeyValues3();
+    }
+  }
+  //set all possible key values.
+  public void setKeyValues3(){
     for(int i = 0; i < 7;i++){
       for(int j = 0; j < 7; j++){
         for(int k = 0; k < 7; k++){
           for(int l = 0; l < 7; l++){
             keyValues.append(new Row(new int[]{i,j,k,l}));
           }
+        }
+      }
+    }
+  }
+  public void setKeyValues2(){
+    for(int i = 0; i < 7;i++){
+      for(int j = 0; j < 7; j++){
+        for(int k = 0; k < 7; k++){
+          for(int l = 0; l < 7; l++){
+            if(i!=j&&i!=k&&i!=l&&j!=k&&j!=l&&k!=l){
+              keyValues.append(new Row(new int[]{i,j,k,l}));
+            }
+          }
+        }
+      }
+    }
+  }
+  public void setKeyValues1(){
+    for(int i = 0; i < 7; i++){
+      for(int j = 0; j < 7;j++){
+        if(keyValues.get(new Row(new int[]{i,i,i,i}))==-1){
+          keyValues.append(new Row(new int[]{i,i,i,i}));
+        }
+        permutations(new Row(new int[]{i,i,i,j}),0,4);
+        permutations(new Row(new int[]{i,i,j,j}),0,4);
+        permutations(new Row(new int[]{i,j,j,j}),0,4);
+        if(keyValues.get(new Row(new int[]{j,j,j,j}))==-1){
+          keyValues.append(new Row(new int[]{j,j,j,j}));
         }
       }
     }
@@ -44,15 +83,19 @@ public class Solver extends Game{
       System.out.println("Answer: "+possibleKeys.get(0));
     }else{
       Random r = new Random();
+      //random value from possibleKeys
       Row guess = possibleKeys.get(r.nextInt(possibleKeys.size()));
       String Gscore = guess.scoreGuess(key);
       System.out.println(guess+"  "+Gscore);
+      //delete values in possibleKeys that do not score guess same as key did
       for(int i = 0; i < possibleKeys.size(); i++){
+        //if the scores are not the same
         if(!Gscore.equals(guess.scoreGuess(possibleKeys.get(i).getGuess()))){
           keyValues.delete(i);
-          i--;
+          i--;//making sure not to skip a value in possibleKeys
         }//end if
       }//end for
+      //This will have the same big O as the solve() method.
       recursiveSolve(possibleKeys);
     }
   }
@@ -146,5 +189,11 @@ public class Solver extends Game{
     keyValues.clear();
     setKeyValues();
     solveShuffle();
+  }
+  public static void main(String[] args){
+    Solver a = new Solver();
+    a.setKey();
+    a.setKeyValues();
+    System.out.println(a.keyValues.size());
   }
 }
