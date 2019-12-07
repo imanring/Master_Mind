@@ -12,3 +12,5 @@ Row.class: Row.java
 	javac Row.java
 run:
 	java Main
+clean:
+	rm *.class
