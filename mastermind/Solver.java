@@ -41,15 +41,10 @@ public class Solver extends Game{
   public void setKeyValues1(){
     for(int i = 0; i < 7; i++){
       for(int j = 0; j < 7;j++){
-        if(keyValues.get(new Row(new int[]{i,i,i,i}))==-1){
-          keyValues.append(new Row(new int[]{i,i,i,i}));
-        }
+        //I'm not going to need to worry about keyValues with only i or only j becuase i and j will be equal at several points
         permutations(new Row(new int[]{i,i,i,j}),0,4);
         permutations(new Row(new int[]{i,i,j,j}),0,4);
         permutations(new Row(new int[]{i,j,j,j}),0,4);
-        if(keyValues.get(new Row(new int[]{j,j,j,j}))==-1){
-          keyValues.append(new Row(new int[]{j,j,j,j}));
-        }
       }
     }
   }
