@@ -76,9 +76,11 @@ Steps - generate a random int for each index of key.
 
 **setKeyValues**
 
-Goals - set keyValues to a set of all posible keys when we have no information about the actual key.
+Goals - set keyValues to a set of all posible keys based on the level of difficulty of the solve.
 
-Steps - do four loops each from 0 to 6 inclusive and set keyValues to the indices.
+Steps - if the difficulty is hard loop 4 times each from 0 to 6 inclusive and set keyValues to the indices.
+Medium should have all unique values in each key. If the difficulty is medium do the same thing as in difficult, except this time check to make sure none of the values are the same before adding an element to keyValues.
+Easy can only have two different values in each key. I will use two nested loops from 0 to 6 to generate the two possible values in the key. Then I will use the permutations method to add all permutations of the two values.
 
 **Solve**
 
